@@ -1,5 +1,4 @@
 //console.log("SW hola mundo")
-let url2 = window.location.href
 
 self.addEventListener('install', (event) => {
     console.log("SW: Instalado")
@@ -10,13 +9,8 @@ self.addEventListener('activate', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
-    console.log(event.request.url)
     if(event.request.url.includes('.jpg')){
-        rutaImg = "/images/viego-league-of-legends-lol-papel-pintado-3840x2160_54.jpg"
-        let newResp = fetch(rutaImg);
-        if(!url2.includes('localhost')){
-            newResp = fetch("/PWA_U1_01/"+rutaImg);
-        }
+        let newResp = fetch("/PWA_U1_01/images/viego-league-of-legends-lol-papel-pintado-3840x2160_54.jpg")
         console.log("Es una imagen");
         event.respondWith(newResp);
     }
