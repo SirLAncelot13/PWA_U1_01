@@ -1,3 +1,7 @@
 body {
     background-color: aquamarine !important;
 }
+
+div {
+    margin-bottom: 10px;
+}
