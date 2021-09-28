@@ -1,17 +1,19 @@
-console.log("Hola mundo desde app.js")
+
 let url = window.location.href
 let swDirect = "/PWA_U1_01/sw.js"
 let rickFlag = false
 
 if(navigator.serviceWorker){
     console.log("Muy bien");
-    navigator.serviceWorker.register("/sw.js")
+    if(url.includes('localhost')){
+        swDirect = "/sw.js"
+    }
+    navigator.serviceWorker.register(swDirect)
 }else{
     console.log("Nada bien")
 }
 
 document.getElementById("registrar").onclick = function(){
-    console.log("Hola desde el boton")
     let personas = $('#registros')
     let data = {name: "Javier", job: "Jardinero"}
     fetch("https://reqres.in/api/users", {
